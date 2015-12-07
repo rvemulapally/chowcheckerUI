@@ -1,0 +1,19 @@
+{
+  "name": "chowcheckerUI",
+  "version": "1.0.0",
+  "description": "Frontend for Chowchecker",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rvemulapally/chowcheckerUI"
+  },
+  "author": "Aldren Alangcao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rvemulapally/chowcheckerUI/issues"
+  },
+  "homepage": "https://github.com/rvemulapally/chowcheckerUI"
+}
