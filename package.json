@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/rvemulapally/chowcheckerUI/issues"
   },
-  "homepage": "https://github.com/rvemulapally/chowcheckerUI"
+  "homepage": "https://github.com/rvemulapally/chowcheckerUI",
+  "dependencies": {
+    "express": "^4.11.2",
+    "express-session": "^1.10.4"
+  }
 }
