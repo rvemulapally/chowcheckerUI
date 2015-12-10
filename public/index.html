@@ -1,14 +1,18 @@
 <html ng-app="chowcheckerUI">
 <head>
-	<title>Chowchecker</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<title>Chowchecker</title>
+<link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body ng-controller="mainController">
+    <div id="dog-bg">
+    </div>
     <div class="container">    
         <div style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <div class="panel-title">Chowchecker</div>
+                    <div class="panel-title"> 
+                        <img style="width: inherit;max-width: 70%;" src='images/chowchecker-logo.png'/>
+                    </div>
                 </div>  
                 <div class="panel-body" >
                     <form id="mainform" class="form-horizontal" role="form">
@@ -19,41 +23,37 @@
                         </div>   
                         <!-- Pet name -->
                         <div class="form-group">
-                            <label for="petname" class="col-md-3 control-label">Pet name</label>
-                            <div class="col-md-9">
-                                <input type="text" ng-model="petname" class="form-control" name="petname" placeholder="Alexander">
+                            <div class="col-md-12">
+                                <input type="text" ng-model="petname" class="form-control" name="petname" placeholder="Pet name">
                             </div>
                         </div>
                         <!--  Breed -->
                         <div class="form-group">
-                            <label for="breed" class="col-md-3 control-label">Breed</label>
-                            <div class="col-md-9">
+                            <div class="col-md-12">
                                 <select class="form-control" ng-model="selectedBreed" ng-options="breed.Breed for breed in breeds">
-									<option value="" selected disabled>Please select breed</option>
+									<option value="" selected disabled>Breed</option>
                                 </select>
                             </div>
                         </div>
                         <!--  Age -->
                         <div class="form-group">
-                            <label for="age" class="col-md-3 control-label">Age</label>
-                            <div class="col-md-9">
+                            <div class="col-md-12">
                                 <select class="form-control" ng-model="selectedAge" ng-options="age for age in ages">
-									<option value="" selected disabled>Please select age</option>
+									<option value="" selected disabled>Age</option>
                                 </select>
                             </div>
                         </div>
                         <!-- Weight -->
                         <div class="form-group">
-                            <label for="weight" class="col-md-3 control-label">Weight</label>
-                            <div class="col-md-9">
+                            <div class="col-md-12">
                                 <input type="text" ng-model="weight" class="form-control" name="weight" placeholder="Weight">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <!-- Button -->                                        
-                            <div class="col-md-offset-3 col-md-9">
-                                <button type="button" class="btn btn-info">Submit</button>
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-info btn-md">Submit</button>
                             </div>
                         </div>
                     </form>
