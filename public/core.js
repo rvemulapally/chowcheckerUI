@@ -20,4 +20,8 @@ function mainController($scope, $http) {
         .error(function(data) {
             console.log('Error: ' + data);
         });
+
+    $scope.doSubmit = function() {
+        console.log($scope.petname, $scope.selectedBreed, $scope.selectedAge, $scope.weight);
+      }
 }
