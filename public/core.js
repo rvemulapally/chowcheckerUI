@@ -11,6 +11,7 @@ var baseApiUrl = "https://aqueous-coast-7114.herokuapp.com";
 
 function mainController($scope, $http) {
     $scope.ages = ["Puppy", "Adult", "Senior"];
+    $scope.results;
 
     $http.get(baseApiUrl + '/breeds')
         .success(function(data) {
@@ -22,6 +23,15 @@ function mainController($scope, $http) {
         });
 
     $scope.doSubmit = function() {
-        console.log($scope.petname, $scope.selectedBreed, $scope.selectedAge, $scope.weight);
-      }
+        $http.post(baseApiUrl + '/collection/filter', {
+            name: "dogs",
+            query: "AgeCategory: \"" + $scope.selectedAge + "\""
+        }).success(function(data) {
+            $scope.results = data.results;
+            console.log(data);
+        }).error(function(data) {
+            console.log('Error: ' + data);
+        });
+    }
 }
+

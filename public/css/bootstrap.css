@@ -6812,5 +6812,16 @@ td.visible-print {
   background-image: url('/images/dog-bg.jpg');
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   opacity: 0.4;
+}
+
+.result {
+  padding: 10 10px 10px 10px !important;
+}
+.result h4{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 19px;
 }
