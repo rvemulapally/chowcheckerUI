@@ -47,6 +47,10 @@ function mainController($scope, $http, $uibModal) {
             }
         });
     }
+
+    $scope.clear = function() {
+        $scope.results = null;
+    }
 }
 
 chowcheckerUI.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, product) {
