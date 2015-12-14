@@ -12,6 +12,7 @@ var baseApiUrl = "https://aqueous-coast-7114.herokuapp.com";
 function mainController($scope, $http, $uibModal) {
     $scope.ages = ["Puppy", "Adult", "Senior"];
     $scope.results;
+    $scope.searchResults;
 
     $http.get(baseApiUrl + '/breeds')
         .success(function(data) {
@@ -34,9 +35,9 @@ function mainController($scope, $http, $uibModal) {
         });
     }
 
-    $scope.showIngredients = function(index) {
+    $scope.showIngredients = function(model, index) {
         console.log('Product selected:', $scope.results[index]);
-        var product = $scope.results[index];
+        var product = model[index];
         $uibModal.open({
             templateUrl: 'myModalContent.html',
             controller: 'ModalInstanceCtrl',
@@ -48,8 +49,27 @@ function mainController($scope, $http, $uibModal) {
         });
     }
 
+    $scope.searchForIngredient = function() {
+        if(!$scope.searchIngredient.trim()) return;
+        var searchIngredient = $scope.searchIngredient.toLowerCase();
+        var results = JSON.parse(JSON.stringify($scope.results));
+        var searchResults = [];
+        for(var i in results) {
+            var result = results[i];
+            if(typeof result.Ingredients != 'string') {
+                result.Ingredients = JSON.stringify(result.Ingredients);
+            }
+            if(result.Ingredients.toLowerCase().indexOf(searchIngredient) > -1) {
+                searchResults.push(result);
+            }
+        }
+        console.log(searchResults.length + ' searchResults for ' + searchIngredient, searchResults);
+        $scope.searchResults = searchResults;
+    }
+
     $scope.clear = function() {
         $scope.results = null;
+        $scope.searchResults = null;
     }
 }
 
