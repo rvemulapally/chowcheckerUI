@@ -7,7 +7,8 @@
     <div id="dog-bg">
     </div>
     <div class="container">    
-        <div style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        
+        <div ng-hide="results" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <div class="panel-title"> 
@@ -49,43 +50,44 @@
                                 <input type="text" ng-model="weight" class="form-control" name="weight" placeholder="Weight">
                             </div>
                         </div>
-
-                       <div class="form-group">
-                            Button                                    
-                            <center>
-                                <button type="button" style="width:33%; border-radius:16px;" class="btn btn-info btn-lg" ng-click="doSubmit()">Find Diet</button>
-                            </center>
+                        <!-- Button  -->
+                        <div class="form-group">
+                        <center>
+                            <button type="button" style="width:33%; border-radius:16px;" class="btn btn-info btn-lg" ng-click="doSubmit()">Find Diet</button>
+                        </center>
                         </div>
+
                     </form>
                  </div>
             </div>
          </div> 
 
-        <div class="col-md-4 result" ng-repeat="result in results">
-            <div class="thumbnail">
+        <div class="col-sm-4 result" ng-repeat="result in results">
+            <div class="thumbnail" ng-click="showIngredients($index)">
               <div class="caption">
-                <h4>{{result.Product}}</h4>
-                <p>{{result.Brand}}</p>
-                <p>{{result.AgeCategory}}</p>
+                <h4 style="cursor: pointer;">{{result.Product}}</h4>
+                <p style="cursor: pointer;">{{result.Brand}}</p>
+                <p style="cursor: pointer;">{{result.AgeCategory}}</p>
               </div>
             </div>
         </div>
 
     </div>
 
+    <!-- Modal -->
     <script type="text/ng-template" id="myModalContent.html">
         <div class="modal-header">
-            <h3 class="modal-title">Im a modal!</h3>
+            <h3 class="modal-title"> {{ selected.Product }} </h3>
+            <h5> {{ selected.Brand }} </h5>
+            <h5> {{ selected.AgeCategory }} </h5>
         </div>
         <div class="modal-body">
             <ul>
-                <li> waho </li>
+                <li ng-repeat="ingredient in selected.Ingredients">{{ingredient}}</li>
             </ul>
-            Selected: <b>{{ selected.item }}</b>
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
         </div>
     </script>
 

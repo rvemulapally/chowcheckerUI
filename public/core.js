@@ -34,31 +34,28 @@ function mainController($scope, $http, $uibModal) {
         });
     }
 
-    $scope.openModal = function() {
+    $scope.showIngredients = function(index) {
+        console.log('Product selected:', $scope.results[index]);
+        var product = $scope.results[index];
         $uibModal.open({
             templateUrl: 'myModalContent.html',
             controller: 'ModalInstanceCtrl',
             resolve: {
-                items: function () {
-                  return ['a', 'b', 'c', 'd', 'e'];
+                product: function () {
+                  return product;
                 }
             }
         });
     }
 }
 
-chowcheckerUI.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
+chowcheckerUI.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, product) {
+    try {
+        product.Ingredients = JSON.parse(product.Ingredients);
+    } catch(e) {}
+    $scope.selected = product;
 
-  $scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };
-
-  $scope.ok = function () {
-    $uibModalInstance.close($scope.selected.item);
-  };
-
-  $scope.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
-  };
+    $scope.ok = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
 });
