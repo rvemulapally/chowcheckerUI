@@ -70,6 +70,7 @@ function mainController($scope, $http, $uibModal) {
     $scope.clear = function() {
         $scope.results = null;
         $scope.searchResults = null;
+        $scope.searchIngredient=''
     }
 }
 
