@@ -36,7 +36,7 @@ function mainController($scope, $http, $uibModal) {
     }
 
     $scope.showIngredients = function(model, index) {
-        console.log('Product selected:', $scope.results[index]);
+        console.log('Product selected:', model[index]);
         var product = model[index];
         $uibModal.open({
             templateUrl: 'myModalContent.html',
