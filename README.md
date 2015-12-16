@@ -1,3 +1,9 @@
+### Running locally
+  * Clone the repository
+  * Go to the folder via cmd/terminal
+  * Then run node server.js
+  * You can access it through localhost:8080
+
 ### Deploying to Heroku
   * Install heroku-toolbelt - go to https://toolbelt.heroku.com, choose your platform and follow the steps
   * Go to your local chowchecker folder then add remote for heroku by this command
