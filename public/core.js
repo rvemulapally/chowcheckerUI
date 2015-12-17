@@ -13,6 +13,7 @@ function mainController($scope, $http, $uibModal) {
     $scope.ages = ["Puppy", "Adult", "Senior"];
     $scope.results;
     $scope.searchResults;
+    $scope.searchIngredient = '';
 
     $http.get(baseApiUrl + '/breeds')
         .success(function(data) {
@@ -49,9 +50,9 @@ function mainController($scope, $http, $uibModal) {
         });
     }
 
-    $scope.searchForIngredient = function() {
-        if(!$scope.searchIngredient.trim()) return;
-        var searchIngredient = $scope.searchIngredient.toLowerCase();
+    $scope.searchForIngredient = function(searchIngredient) {
+        if(!searchIngredient.trim()) return;
+        var searchIngredient = searchIngredient.toLowerCase();
         var results = JSON.parse(JSON.stringify($scope.results));
         var searchResults = [];
         for(var i in results) {
