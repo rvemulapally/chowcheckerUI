@@ -1,4 +1,4 @@
-var chowcheckerUI = angular.module('chowcheckerUI', ['ui.bootstrap.modal', 'ui.bootstrap.tpls']);
+var chowcheckerUI = angular.module('chowcheckerUI', ['ui.bootstrap', 'ui.bootstrap.tpls']);
 chowcheckerUI.controller('mainController', mainController);
 chowcheckerUI.run(function($http) {
   $http.defaults.headers.common.apiKey = 'Y2hvd2NoZWNrZXIyMDE1';
@@ -83,4 +83,8 @@ chowcheckerUI.controller('ModalInstanceCtrl', function ($scope, $uibModalInstanc
     $scope.ok = function () {
         $uibModalInstance.dismiss('cancel');
     };
+});
+
+chowcheckerUI.controller('NavBarCtrl', function($scope) {
+    $scope.isCollapsed = true;
 });
