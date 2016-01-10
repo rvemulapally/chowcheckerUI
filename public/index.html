@@ -28,26 +28,23 @@
 
                   <div class="col-sm-4 col-md-4 pull-right">
                     <form class="navbar-form">
-                        <div class="input-group" ng-controller="DropdownCtrl">
-                            <div class="input-group-btn search-panel">
-                                <div class="btn-group" uib-dropdown is-open="status.isopen">
-                                <button id="single-button" type="button" class="btn btn-default" uib-dropdown-toggle ng-disabled="disabled"> &nbsp; <span class="caret"></span>
-                                </button>
-                                <ul class="uib-dropdown-menu" role="menu" aria-labelledby="single-button">
-                                    <li ng-click="autoSearch('Duck')"><a href="#">Duck</a></li>
-                                    <li ng-click="autoSearch('Meat')"><a href="#">Meat</a></li>
-                                    <li ng-click="autoSearch('Chicken')"><a href="#">Chicken</a></li>
-                                    <li ng-click="autoSearch('Fish')"><a href="#">Fish</a></li>
-                                    <li ng-click="autoSearch('Lamb')"><a href="#">Lamb</a></li>
-                                  </ul>
-                              </div>
-                            </div>
-                            <input type="text" class="form-control" style="height:34px; border-radius:4px; font-size: 12px;" placeholder="Search by ingredient" ng-model="searchIngredient">
-                            <div class="input-group-btn" ng-click="searchForIngredient(searchIngredient)">
-                                <button class="btn btn-default" type="submit" style="height:34px;"><i class="glyphicon glyphicon-search"></i></button>
-                            </div>
-                            <div ng-show="searchResults" class="input-group-btn" ng-click="clearSearch()">
-                                <button class="btn btn-default" type="submit" style="height:34px;"><i class="glyphicon glyphicon-remove"></i></button>
+                        <div class="form-horizontal">
+                            <div class="input-group">
+                                <div class="ddl-select input-group-btn">
+                                    <select class="form-control form-control-search btn-primary" style="width: 70px;" ng-model="autoSearchIngredient" ng-change="autoSearch(autoSearchIngredient)">
+                                      <option selected disabled data-hidden="true" value="">Search</option>
+                                      <option>Duck</option>
+                                      <option>Meat</option>
+                                      <option>Chicken</option>
+                                      <option>Fish</option>
+                                      <option>Lamb</option>
+                                    </select>
+                                </div>
+                                <input type="text" class="form-control form-control-search" placeholder="Enter ingredient" ng-model="searchIngredient">
+                                <span class="input-group-btn">
+                                  <button class="btn btn-info form-control-search" type="button" ng-click="searchForIngredient(searchIngredient)"><i class="glyphicon glyphicon-search"></i> </button>
+                                  <button ng-show="searchResults" class="btn btn-danger form-control-search" type="button" ng-click="clearSearch()"><i class="glyphicon glyphicon-remove"></i> </button>
+                                </span>
                             </div>
                         </div>
                     </form>
@@ -75,13 +72,13 @@
                         <!-- Pet name -->
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input type="text" ng-model="petname" class="form-control" name="petname" placeholder="Pet name">
+                                <input type="text" ng-model="petname" class="form-control form-control-chow" name="petname" placeholder="Pet name">
                             </div>
                         </div>
                         <!--  Breed -->
                         <div class="form-group">
                             <div class="col-md-12">
-                                <select class="form-control" ng-model="selectedBreed" ng-options="breed.Breed for breed in breeds">
+                                <select class="form-control form-control-chow" ng-model="selectedBreed" ng-options="breed.Breed for breed in breeds">
 									<option value="" selected disabled>Breed</option>
                                 </select>
                             </div>
@@ -89,7 +86,7 @@
                         <!--  Age -->
                         <div class="form-group">
                             <div class="col-md-12">
-                                <select class="form-control" ng-model="selectedAge" ng-options="age for age in ages">
+                                <select class="form-control form-control-chow" ng-model="selectedAge" ng-options="age for age in ages">
 									<option value="" selected disabled>Age</option>
                                 </select>
                             </div>
@@ -97,7 +94,7 @@
                         <!-- Weight -->
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input type="text" ng-model="weight" class="form-control" name="weight" placeholder="Weight">
+                                <input type="text" ng-model="weight" class="form-control form-control-chow" name="weight" placeholder="Weight">
                             </div>
                         </div>
                         <!-- Button  -->

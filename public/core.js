@@ -80,12 +80,14 @@ function mainController($scope, $http, $uibModal) {
     $scope.clear = function() {
         $scope.results = null;
         $scope.searchResults = null;
-        $scope.searchIngredient=''
+        $scope.searchIngredient='';
+        $scope.autoSearchIngredient='';
     }
 
     $scope.clearSearch = function() {
         $scope.searchResults = null; 
         $scope.searchIngredient = '';
+        $scope.autoSearchIngredient='';
     }
 }
 
