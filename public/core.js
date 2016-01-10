@@ -15,7 +15,7 @@ function mainController($scope, $http, $uibModal) {
     $scope.searchResults;
     $scope.searchIngredient = '';
 
-    $scope.results = waho;
+    //$scope.results = sample;
 
 
     $http.get(baseApiUrl + '/breeds')
@@ -120,7 +120,7 @@ chowcheckerUI.controller('DropdownCtrl', function ($scope, $log) {
   };
 });
 
-var waho = [
+var sample = [
         {
             "Brand": "Solid Gold",
             "Manufacturer": "Solid Gold",
