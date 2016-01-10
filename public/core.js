@@ -72,7 +72,9 @@ function mainController($scope, $http, $uibModal) {
     }
 
     $scope.autoSearch = function(ingredient) {
-        console.log('AutoSearch for:', ingredient);        
+        console.log('AutoSearch for:', ingredient);
+        $scope.searchIngredient = ingredient;
+        $scope.searchForIngredient(ingredient);
     }
 
     $scope.clear = function() {
