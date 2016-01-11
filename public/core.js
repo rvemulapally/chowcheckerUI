@@ -14,6 +14,7 @@ function mainController($scope, $http, $uibModal) {
     $scope.results;
     $scope.searchResults;
     $scope.searchIngredient = '';
+    $scope.autoSearchIngredients = ['Search','Duck','Meat','Chicken','Fish','Lamb'];
 
     //$scope.results = sample;
 
@@ -54,7 +55,7 @@ function mainController($scope, $http, $uibModal) {
     }
 
     $scope.searchForIngredient = function(searchIngredient) {
-        if(!searchIngredient.trim()) return;
+        if(!searchIngredient.trim() || searchIngredient == 'Search') return;
         var searchIngredient = searchIngredient.toLowerCase();
         var results = JSON.parse(JSON.stringify($scope.results));
         var searchResults = [];
@@ -81,13 +82,13 @@ function mainController($scope, $http, $uibModal) {
         $scope.results = null;
         $scope.searchResults = null;
         $scope.searchIngredient='';
-        $scope.autoSearchIngredient='';
+        $scope.autoSearchIngredient = 'Search';
     }
 
     $scope.clearSearch = function() {
         $scope.searchResults = null; 
         $scope.searchIngredient = '';
-        $scope.autoSearchIngredient='';
+        $scope.autoSearchIngredient = 'Search';
     }
 }
 

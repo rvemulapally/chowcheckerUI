@@ -31,13 +31,7 @@
                         <div class="form-horizontal">
                             <div class="input-group">
                                 <div class="ddl-select input-group-btn">
-                                    <select class="form-control form-control-search btn-primary" style="width: 70px;" ng-model="autoSearchIngredient" ng-change="autoSearch(autoSearchIngredient)">
-                                      <option selected disabled data-hidden="true" value="">Search</option>
-                                      <option>Duck</option>
-                                      <option>Meat</option>
-                                      <option>Chicken</option>
-                                      <option>Fish</option>
-                                      <option>Lamb</option>
+                                    <select class="form-control form-control-search btn-primary" style="width: auto;" ng-model="autoSearchIngredient" ng-change="autoSearch(autoSearchIngredient)" ng-options="o for o in autoSearchIngredients" ng-init="autoSearchIngredient='Search'">
                                     </select>
                                 </div>
                                 <input type="text" class="form-control form-control-search" placeholder="Enter ingredient" ng-model="searchIngredient">
