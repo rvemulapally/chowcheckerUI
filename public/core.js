@@ -16,8 +16,8 @@ function mainController($scope, $http, $uibModal) {
     $scope.searchIngredient = '';
     $scope.autoSearchIngredients = ['Search','Duck','Meat','Chicken','Fish','Lamb'];
 
-    //$scope.results = sample;
-
+    $scope.results = sample;
+    fixIngredients($scope.results);
 
     $http.get(baseApiUrl + '/breeds')
         .success(function(data) {
@@ -70,6 +70,7 @@ function mainController($scope, $http, $uibModal) {
         }
         console.log(searchResults.length + ' searchResults for ' + searchIngredient, searchResults);
         $scope.searchResults = searchResults;
+        fixIngredients($scope.searchResults);
     }
 
     $scope.autoSearch = function(ingredient) {
@@ -122,6 +123,15 @@ chowcheckerUI.controller('DropdownCtrl', function ($scope, $log) {
     $scope.status.isopen = !$scope.status.isopen;
   };
 });
+
+function fixIngredients(results) {
+    for(var i in results) {
+        try {
+         results[i].Ingredients = JSON.parse(results[i].Ingredients);
+        } catch(e) {}
+        
+    }
+}
 
 var sample = [
         {
@@ -235,30 +245,6 @@ var sample = [
             "Amylase* (Aspergillus oryzae) ": "[\"Chicken\", \"Lamb\"]",
             "Cellulase*(TrichodermaReesei)": "http://www.iams.com/dog-food/iams-proactive-health-adult-ground-dinner-with-lamb-and-rice",
             "Hemicellulase*(TrichodermaReesei)": "http://media.iams.com/en_us/data_root/_images/dog/products/pah_d_groundlambrice_lg.jpg",
-            "Lipase*(AspergillusNiger)": "",
-            "": "",
-            "FeedingGuidelines": " ",
-            "ProductClaims": "",
-            "HealthRelated": "",
-            "Flavor": "",
-            "WebURL": "",
-            "ProductImage": ""
-        },
-        {
-            "Brand": "Iams® ProActive Health™",
-            "Manufacturer": "Iams",
-            "LogoLink": "http://www.zeiglersdist.com/images/products/All-Logos/LogoIams.gif",
-            "Product": "Adult Weight Control Biscuits",
-            "PetType": "Dog",
-            "AgeCategory": "Adult",
-            "Type": "Dry",
-            "Ingredients": "[\"Wheat Flour\", \"Chicken By-Product Meal\", \"Dried Beet Pulp (sugar removed)\", \"Natural Chicken Flavor\", \"Calcium Carbonate\", \"Brewer\"s Dried Yeast\", \"Dicalcium Phosphate\", \"Vitamins (Vitamin E Supplement\", \"Ascorbic Acid\", \"Vitamin A Acetate\", \"Calcium Pantothenate\", \"Biotin\", \"Thiamine Mononitrate (source of vitamin B1)\", \"Vitamin B12 Suplement\", \"Niacin\", \"Riboflavin Supplement (source of vitamin B2)\", \"Inositol\", \"Pyridoxine Hydrochloride (source of vitamin B6)\", \"Vitamin D3 Supplement\", \"Folic Acid)\", \"Potassium Chloride\", \"DL-Methionine\", \"Potassium Sorbate (a preservative)\", \"Minerals (Ferrous Sulfate\", \"Zinc Oxide\", \"Manganese Sulfate\", \"Copper Sulfate\", \"Manganous Oxide\", \"Potassium Iodide\", \"Cobalt Carbonate)\", \"Choline Chloride\"]",
-            "Arginine(min.)": "[\"Iams ProActive Health Weight Control Biscuits are recommended to be fed as a treat to complement Iams ProActive Health Dry Dog Foods and/or IamsProActive Health Canned Dog Foods. We recommend two to three biscuits per day.\"]",
-            "Omega": "[\"Real chicken protein\", \"Made with essential vitamins and minerals\", \"High-quality ingredients\"]",
-            "Protease*(AspergillusOryzae) ": "[\"Weight management \"]",
-            "Amylase* (Aspergillus oryzae) ": "[\"Natural Chicken Flavor\"]",
-            "Cellulase*(TrichodermaReesei)": "http://www.iams.com/dog-food/iams-proactive-health-adult-weight-control-biscuits",
-            "Hemicellulase*(TrichodermaReesei)": "http://media.iams.com/en_us/data_root/_images/dog/products/biscuit_d_weightcontrol_lg.jpg",
             "Lipase*(AspergillusNiger)": "",
             "": "",
             "FeedingGuidelines": " ",

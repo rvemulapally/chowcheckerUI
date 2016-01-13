@@ -10,7 +10,7 @@
     <div id="dog-bg">
     </div>
 
-    <div class="container">    
+    <div class="container">
         <nav ng-show="results" class="navbar navbar-default"  ng-controller="NavBarCtrl">
             <div class="container-fluid">
               
@@ -107,8 +107,16 @@
             <div class="thumbnail" ng-click="showIngredients(results, $index)">
               <div class="caption">
                 <h4 style="cursor: pointer;">{{result.Product}}</h4>
-                <p style="cursor: pointer;">{{result.Brand}}</p>
+                <p style="cursor: pointer;"><b>{{result.Brand}}</b></p>
                 <p style="cursor: pointer;">{{result.AgeCategory}}</p>
+                <hr>
+                <ul>
+                    <li>{{result.Ingredients[0]}}</li>
+                    <li>{{result.Ingredients[1]}}</li>
+                    <li>{{result.Ingredients[2]}}</li>
+                    <li>{{result.Ingredients[3]}}</li>
+                    <li>{{result.Ingredients[4]}}</li>
+                </ul>
               </div>
             </div>
         </div>
@@ -119,6 +127,14 @@
                 <h4 style="cursor: pointer;">{{result.Product}}</h4>
                 <p style="cursor: pointer;">{{result.Brand}}</p>
                 <p style="cursor: pointer;">{{result.AgeCategory}}</p>
+                <hr>
+                <ul>
+                    <li>{{result.Ingredients[0]}}</li>
+                    <li>{{result.Ingredients[1]}}</li>
+                    <li>{{result.Ingredients[2]}}</li>
+                    <li>{{result.Ingredients[3]}}</li>
+                    <li>{{result.Ingredients[4]}}</li>
+                </ul>
               </div>
             </div>
         </div>
