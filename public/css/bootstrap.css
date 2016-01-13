@@ -6833,3 +6833,21 @@ td.visible-print {
   text-overflow: ellipsis;
   height: 19px;
 }
+
+.caption p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 19px;
+}
+
+.caption ul {  
+  list-style-position: inside;
+  margin-left: -20px;
+}
+
+.caption ul li{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

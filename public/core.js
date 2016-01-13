@@ -16,8 +16,8 @@ function mainController($scope, $http, $uibModal) {
     $scope.searchIngredient = '';
     $scope.autoSearchIngredients = ['Search','Duck','Meat','Chicken','Fish','Lamb'];
 
-    $scope.results = sample;
-    fixIngredients($scope.results);
+    /*$scope.results = sample;
+    fixIngredients($scope.results);*/
 
     $http.get(baseApiUrl + '/breeds')
         .success(function(data) {
@@ -34,6 +34,7 @@ function mainController($scope, $http, $uibModal) {
             query: "AgeCategory: \"" + $scope.selectedAge + "\""
         }).success(function(data) {
             $scope.results = data.results;
+            fixIngredients($scope.results);
             console.log(data);
         }).error(function(data) {
             console.log('Error: ' + data);
