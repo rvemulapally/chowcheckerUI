@@ -15,9 +15,7 @@ function mainController($scope, $http, $uibModal) {
     $scope.searchResults;
     $scope.searchIngredient = '';
     $scope.autoSearchIngredients = ['Search','Duck','Meat','Chicken','Fish','Lamb'];
-
-    /*$scope.results = sample;
-    fixIngredients($scope.results);*/
+    $scope.autoSearchIngredient = $scope.autoSearchIngredients[0];
 
     $http.get(baseApiUrl + '/breeds')
         .success(function(data) {
@@ -84,13 +82,11 @@ function mainController($scope, $http, $uibModal) {
         $scope.results = null;
         $scope.searchResults = null;
         $scope.searchIngredient='';
-        $scope.autoSearchIngredient = 'Search';
     }
 
     $scope.clearSearch = function() {
         $scope.searchResults = null; 
         $scope.searchIngredient = '';
-        $scope.autoSearchIngredient = 'Search';
     }
 }
 
@@ -133,6 +129,10 @@ function fixIngredients(results) {
         
     }
 }
+
+$('#clearSearch, #home').on('click', function() {
+    $('#autoSearch').val('string:Search');
+});
 
 var sample = [
         {
