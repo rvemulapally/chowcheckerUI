@@ -17,6 +17,9 @@ function mainController($scope, $http, $uibModal) {
     $scope.autoSearchIngredients = ['Search','Duck','Meat','Chicken','Fish','Lamb'];
     $scope.autoSearchIngredient = $scope.autoSearchIngredients[0];
 
+    /*$scope.results = sample;
+    fixIngredients($scope.results);*/
+
     $http.get(baseApiUrl + '/breeds')
         .success(function(data) {
             $scope.breeds = data.list;

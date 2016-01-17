@@ -103,13 +103,15 @@
             </div>
          </div> 
 
-        <div ng-hide="searchResults" class="col-sm-4 result" ng-repeat="result in results">
-            <div class="thumbnail" ng-click="showIngredients(results, $index)">
+        <div class="col-sm-4 result" ng-repeat="result in searchResults || results">
+            <div class="thumbnail" ng-click="showIngredients(searchResults || results, $index)">
               <div class="caption">
                 <h4 style="cursor: pointer;">{{result.Product}}</h4>
                 <p style="cursor: pointer;"><b>{{result.Brand}}</b></p>
                 <p style="cursor: pointer;">{{result.AgeCategory}}</p>
                 <hr>
+                <p style="display:inline;"><b>Top 5 ingredients</b></p>
+                <img class="company-logo pull-right" alt="no image" ng-src="{{result.LogoLink}}" onerror="this.src='/images/nologo.png'">
                 <ul>
                     <li>{{result.Ingredients[0]}}</li>
                     <li>{{result.Ingredients[1]}}</li>
@@ -120,25 +122,6 @@
               </div>
             </div>
         </div>
-
-        <div ng-hide="!searchResults" class="col-sm-4 result" ng-repeat="result in searchResults">
-            <div class="thumbnail" ng-click="showIngredients(searchResults, $index)">
-              <div class="caption">
-                <h4 style="cursor: pointer;">{{result.Product}}</h4>
-                <p style="cursor: pointer;">{{result.Brand}}</p>
-                <p style="cursor: pointer;">{{result.AgeCategory}}</p>
-                <hr>
-                <ul>
-                    <li>{{result.Ingredients[0]}}</li>
-                    <li>{{result.Ingredients[1]}}</li>
-                    <li>{{result.Ingredients[2]}}</li>
-                    <li>{{result.Ingredients[3]}}</li>
-                    <li>{{result.Ingredients[4]}}</li>
-                </ul>
-              </div>
-            </div>
-        </div>
-
     </div>
 
     <!-- Modal -->
